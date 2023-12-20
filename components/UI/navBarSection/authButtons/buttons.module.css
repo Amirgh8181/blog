@@ -12,3 +12,12 @@
 :global(.dark) .SignUpContainer {
   @apply from-gray-500 to-gray-800;
 }
+
+
+.SignOutContainer{
+  @apply  bg-gradient-to-t rounded-lg from-gray-300 to-gray-500 text-white md:p-2 p-1 text-sm;
+}
+
+:global(.dark) .SignOutContainer {
+  @apply from-gray-500 to-gray-800;
+}

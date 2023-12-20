@@ -16,7 +16,7 @@ export const SignUpSchema = z.object({
 
             const req: dataProps[] = await getSignUpUsers()            
             let isExistName: boolean = true;
-            req.map(item => {
+            req?.map(item => {
                 if (item.name === e) {
                     isExistName = false;
                     return
@@ -33,7 +33,7 @@ export const SignUpSchema = z.object({
 
             const req: dataProps[] = await getSignUpUsers()            
             let isExistEmail: boolean = true;
-            req.map(item => {
+            req?.map(item => {
                 if (item.email === e) {
                     isExistEmail = false;
                     return

@@ -27,6 +27,6 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/authentication/loginForm/fake"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/authentication/loginForm/fake", "app/api/auth/[...nextauth]/route.ts"],
   "exclude": ["node_modules"]
 }

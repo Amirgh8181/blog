@@ -8,7 +8,7 @@ import { ThemeSwitcher } from '@/components/UI/themeSwitch'
 import { DesktopSearchBtn, MobileSearchBtn } from '@/components/UI/navBarSection/searchBtn'
 import NavItem from '@/components/UI/navBarSection/navItem'
 import BlogLogo from '../../UI/blogLogo'
-import LoginBtn from '@/components/UI/navBarSection/entryUserButtons'
+import LoginBtn from '@/components/UI/navBarSection/authButtons/entryBtn'
 
 
 const MobileNav = () => {

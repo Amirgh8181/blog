@@ -5,11 +5,7 @@ import React from 'react'
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function SignUp() {
-  interface entryDataProps {
-    name?:string,
-    email: string,
-    password: string
-  }
+
  
   const containerClass: string = 'min-h-screen overflow-hidden grid place-items-center'
   const titleClass: string = 'flex flex-col justify-center items-center font-bold text-white dark:text-black relative font-splinesans z-20 text-7xl md:text-9xl'

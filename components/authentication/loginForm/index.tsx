@@ -9,9 +9,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 //component and styles
 import Styles from '../login.module.css'
-import { loginUserRequest } from '../../../lib/signIn';
+//import { loginUserRequest } from '@/lib/login';
 import { LoginSchema } from '@/lib/zodSchema/LoginSchema';
 import { LoginDataType } from '../entrySchemaTypes';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -28,12 +30,23 @@ const LoginForm = () => {
     })
     //state
     const [loading, setLoading] = useState(false)
-
+    const router=useRouter()
     //submit hadler
     const onSubmit: SubmitHandler<LoginDataType> = async (e) => {
         setLoading(true)
-        const req = await loginUserRequest(e as LoginDataType)
-        console.log(req);
+        console.log(e);
+        const req =await signIn('credentials', {
+            email: e.email,
+            password: e.password,
+            redirect:false,
+            //callbackUrl:"/"
+        })
+        console.log({req});
+        if(req?.ok){
+            router.push('/')
+        }else{
+            throw Error('invalid login data')
+        }
         setLoading(false)
         reset()
     }
