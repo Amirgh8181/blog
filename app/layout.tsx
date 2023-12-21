@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import '@/styles/globals.css'
 import Footer from '@/components/footer';
 import NavBar from '@/components/navbar';
+
 const spline_sans = Spline_Sans({
   subsets: ['latin'],
   variable: '--font-spline-sans',

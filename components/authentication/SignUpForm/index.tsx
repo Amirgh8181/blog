@@ -13,6 +13,8 @@ import Styles from '../login.module.css'
 import { SignUpSchema } from '@/lib/zodSchema/SignUpSchema';
 import { SignUpDataType } from '../entrySchemaTypes';
 import { signUpUser } from '@/lib/signUp';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -29,12 +31,30 @@ const SignUpForm = () => {
     })
     //state
     const [loading, setLoading] = useState(false)
-
+    const router = useRouter()
     //submit hadler
     const onSubmit: SubmitHandler<SignUpDataType> = async (e) => {
         setLoading(true)
         const req = await signUpUser(e as SignUpDataType)
         console.log(req);
+        if (req) {
+            console.log(req);
+            console.log(e);
+            
+            const loginReq = await signIn('credentials', {
+                email: e.email,
+                password: e.password,
+                redirect: false,
+                //callbackUrl:"/"
+            })
+            console.log(loginReq);
+            
+            if (loginReq?.ok) {
+                router.push('/')
+            } else {
+                throw Error('cant login in blog please login in login page')
+            }
+        }
         setLoading(false)
         reset()
     }

@@ -1,9 +1,6 @@
-"use client"
 import LoginForm from '@/components/authentication/loginForm'
 import ParallaxBg from '@/components/paralaxBg/ParallaxBg'
-import React from 'react'
 
-// eslint-disable-next-line @next/next/no-async-client-component
 export default async function Login() {
 
  
