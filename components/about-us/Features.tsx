@@ -11,8 +11,8 @@ const Features = () => {
             <div className={styles.featuresContainer}
             >
                 <div className={styles.textArea}>
-                    <TextAnimation title={title} textClass={'text-3xl'} staggerTime={0.07} />
-                    <TextAnimation title={message} staggerTime={0.009} />
+                    <TextAnimation title={title} textClass={'text-3xl'} staggerTime={0.005} />
+                    <TextAnimation title={message} staggerTime={0.002} />
                 </div>
                 <div className={styles.featuresImage}>
                     <Image src={'/images/about-us-content.webp'} alt='herr' width={400} height={400} className='h-[50vh] md:h-auto mx-auto rounded-lg' />

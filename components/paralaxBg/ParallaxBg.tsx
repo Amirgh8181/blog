@@ -19,25 +19,23 @@ const ParallaxBg = ({ headerTitle, containerClass, titleClass, imgClass,imageSrc
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ['start start', 'end start']
+        offset: ['end end', 'end start']
     })
-    const bgY: MotionValue<string> = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
-    const textY: MotionValue<string> = useTransform(scrollYProgress, [0, 1], ["0%", "200%"])
+    const bgY: MotionValue<string> = useTransform(scrollYProgress, [0, 1], ["0%", "110%"])
 
 
    
     return (
         <div
             ref={ref}
-            className={`w-full relative inset-0 ${containerClass}`}
+            className={`w-full relative inset-0 mb-0 ${containerClass}`}
         >
-            <motion.div
-                style={{ y: textY }}
+            <div
                 className={titleClass}
             >
                 {/* title animation in paralax bg */}
 
-                <TextAnimation title={headerTitle} staggerTime={0.15}/>
+                <TextAnimation title={headerTitle} staggerTime={0.05}/>
 
 
                 {/* if in hero show search bar */}
@@ -45,7 +43,7 @@ const ParallaxBg = ({ headerTitle, containerClass, titleClass, imgClass,imageSrc
                     {searchBar && <HeroSearchBar />}
                 </div>
 
-            </motion.div>
+            </div>
 
             {/* background of content with paralax animation */}
             <motion.div
@@ -53,7 +51,7 @@ const ParallaxBg = ({ headerTitle, containerClass, titleClass, imgClass,imageSrc
                 style={{ y: bgY,backgroundImage: `url(${imageSrc})` }}
             >
             </motion.div>
-        </div>
+            </div>
     )
 }
 

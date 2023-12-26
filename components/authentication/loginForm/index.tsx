@@ -30,26 +30,28 @@ const LoginForm = () => {
     })
     //state
     const [loading, setLoading] = useState(false)
-    const router=useRouter()
+    const router = useRouter()
+
     //submit hadler
     const onSubmit: SubmitHandler<LoginDataType> = async (e) => {
-        setLoading(true)
-        console.log(e);
-        const req =await signIn('credentials', {
+        //next auth
+        const req = await signIn('credentials', {
             email: e.email,
             password: e.password,
-            redirect:false,
-            //callbackUrl:"/"
+            redirect: false,
         })
-        console.log({req});
-        if(req?.ok){
+        console.log(req);
+
+        if (req?.ok) {
             router.push('/')
-        }else{
+        } else {
             throw Error('invalid login data')
         }
         setLoading(false)
         reset()
     }
+
+
     return (
         <div className="w-full min-h-screen flex justify-center items-center">
             <div className='flex items-center rounded-lg p-8 bg-gradient-to-bl from-gray-500 to-gray-300 dark:from-gray-800 dark:to-gray-500'>

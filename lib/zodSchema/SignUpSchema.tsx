@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import getSignUpUsers from '../GetSignUpUsers';
 
+const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 interface dataProps {
     name: string;
@@ -27,10 +28,9 @@ export const SignUpSchema = z.object({
 
     email: z
         .string()
-        .email("no valid email")
+        .regex(emailRegex,"invalid email format")
         .min(1, { message: "Email Required" })
         .refine(async (e) => {
-
             const req: dataProps[] = await getSignUpUsers()            
             let isExistEmail: boolean = true;
             req?.map(item => {

@@ -3,18 +3,18 @@ import React, { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import styles from './mobileNav.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
-import { BiSearchAlt } from 'react-icons/bi'
-import { ThemeSwitcher } from '@/components/UI/themeSwitch'
 import { DesktopSearchBtn, MobileSearchBtn } from '@/components/UI/navBarSection/searchBtn'
 import NavItem from '@/components/UI/navBarSection/navItem'
 import BlogLogo from '../../UI/blogLogo'
 import LoginBtn from '@/components/UI/navBarSection/authButtons/entryBtn'
+import { useSession } from 'next-auth/react'
+import Auth from '@/components/UI/navBarSection/authButtons'
 
 
 const MobileNav = () => {
     const [mobileMenuToggle, setMobileMenuToggle] = useState<boolean>(false)
     const [searchBar, setSearchBar] = useState<boolean>(false)
-
+    const{data:session}=useSession()
     const openMobileMenu: voidFunc = () => {
         setMobileMenuToggle(!mobileMenuToggle)
     }
@@ -50,8 +50,7 @@ const MobileNav = () => {
                 </div>
                 <div className='flex justify-end items-center space-x-2'>
                     <div className='h-7'>
-                        <LoginBtn />
-
+                        <Auth/>
                     </div>
                     {mobileMenuToggle === false && <button onClick={() => openMobileMenu()} className={styles.mobileMenuBtn}><AiOutlineMenu /></button>}
                 </div>

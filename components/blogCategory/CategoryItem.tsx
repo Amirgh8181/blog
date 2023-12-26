@@ -22,14 +22,14 @@ const CategoryItem = () => {
                                 <div className={styles.cardElements}>
                                     <Image alt='postImg' src={item.img} width={400} height={400} className={styles.cardImg} />
                                     <div className={styles.cardTitle}>
-                                        <TextAnimation title={item.title} staggerTime={0.15} />
+                                        <TextAnimation title={item.title} staggerTime={0.05} />
                                     </div>
 
                                     <Link href={`/Blog/${item.href}`}>
                                         <button
                                             className={styles.cardBtn}
                                         >
-                                            <TextAnimation title={'SHOW MORE'} staggerTime={0.15} />
+                                            <TextAnimation title={'SHOW MORE'} staggerTime={0.05} />
 
                                         </button>
                                     </Link>

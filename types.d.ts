@@ -4,12 +4,14 @@ type navItem = {
 }
 
 type voidFunc = () => void
-type argStr = (arg:string) => void
+type argStr = (arg: string) => void
 
-
-type ChangeActive = {
-  activeItem: string,
-  change: (arg: string) => void,
+type loginResponseData={
+    status: string,
+    token: string,
+    username: string,
+    id: string,
+    email: string
 }
 
 type blogCard = {
