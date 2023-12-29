@@ -37,7 +37,7 @@ const BlogSections = ({ card }: { card: blogCard[] }) => {
         //cardsContainer
         <motion.div className={styles.cardsContainer} variants={ContainerVariant} initial='initial' animate='animate'>
             {card.map(item =>
-                <Link key={item.label} href={`${pathName}/${item.label}?Tag=${item.label}`} className="group">
+                <Link key={item.label} href={`${pathName}/${item.label}`} className="group">
                     {/*cardsBody*/}
                     <motion.div variants={cardVariant} className={`${styles.cardsBody} lg:group-hover:w-56`}>
                         <div className={styles.cardContents}>

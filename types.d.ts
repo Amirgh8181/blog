@@ -21,4 +21,3 @@ type blogCard = {
 }
 
 
-
