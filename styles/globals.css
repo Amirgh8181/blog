@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
-
 }
 
+/* nextjs-portal {
+  display: none;
+} */

@@ -1,9 +1,5 @@
 const url = process.env.BACKEND_SOURCE_URL as string
 
-interface userDetails {
-    email: string,
-    password: string
-}
 
 export async function POST(request: Request) {
     try {

@@ -21,8 +21,8 @@ export default function RootLayout({
 
   const pathname = usePathname()
   return (
-    <html lang="en">
-      <body className="w-full min-h-screen dark:bg-[#040D12] bg-white font-splinesans">
+    <html lang="en" className='scroll-smooth leading-normal '>
+      <body className="scroll-smooth w-full min-h-screen dark:bg-[#040D12] bg-white font-splinesans">
         <NextAuthProvider>
           <NextUiProviders>
             <NextThemeProvider>
